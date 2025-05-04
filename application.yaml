@@ -16,6 +16,7 @@ spec:
     namespace: myapp
   syncPolicy:
     syncOptions:
+    - PruneLast=true 
     - CreateNamespace=true
     automated:
       selfHeal: true
@@ -37,6 +38,7 @@ spec:
     namespace: springboot-app
   syncPolicy:
     syncOptions:
+    - PruneLast=true 
     - CreateNamespace=true
     automated:
       selfHeal: true
