@@ -2,23 +2,42 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: myapp-argo-tomcat-application
-  namespace: argocd
-  argocd.argoproj.io/sync-options: Prune=false
+  namespace: app-dev
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=false
 spec:
   project: default
-
   source:
     repoURL: https://github.com/brundabanm/myargo.git
     targetRevision: HEAD
     path: dev
-  destination: 
+  destination:
     server: https://kubernetes.default.svc
     namespace: myapp
-
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
-
+    automated:
+      selfHeal: true
+      prune: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myapp-argo-springboot-application
+  namespace: app-qa
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/brundabanm/myargo.git
+    targetRevision: HEAD
+    path: qa
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: springboot-app
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
     automated:
       selfHeal: true
       prune: true

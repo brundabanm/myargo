@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-dev
+  name: myapp-qa
 spec:
   selector:
     matchLabels:
-      app: myapp-dev
+      app: myapp-qa
   replicas: 1
   template:
     metadata:
       labels:
-        app: myapp-dev
+        app: myapp-qa
     spec:
       containers:
-      - name: myapp-dev
+      - name: myapp-qa
         image: tomcat:8.0
         ports:
         - containerPort: 8080
