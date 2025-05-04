@@ -3,6 +3,7 @@ kind: Application
 metadata:
   name: myapp-argo-tomcat-application
   namespace: argocd
+  argocd.argoproj.io/sync-options: Prune=false
 spec:
   project: default
 
