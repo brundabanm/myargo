@@ -34,7 +34,7 @@ spec:
     path: qa
   destination:
     server: https://kubernetes.default.svc
-    namespace: springboot-app
+    namespace: app-qa
   syncPolicy:
     syncOptions:
     - PruneLast=true 
