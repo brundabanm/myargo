@@ -4,7 +4,6 @@ metadata:
   name: myapp-argo-tomcat-application
   namespace: app-dev
   annotations:
-    argocd.argoproj.io/sync-options: Prune=false
 spec:
   project: default
   source:
