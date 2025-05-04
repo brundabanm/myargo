@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: myapp-argo-tomcat-application
-  namespace: app-dev
+  namespace: argocd
   annotations:
 spec:
   project: default
@@ -12,7 +12,7 @@ spec:
     path: dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: myapp
+    namespace: app-dev
   syncPolicy:
     syncOptions:
     - PruneLast=true 
